@@ -51,9 +51,9 @@ public class LanguageModel {
 
             l = CharDataMap.get(window);
             l.update(c);
+            window = window.substring(1) + c;
 
             c = in.readChar();
-            window = window.substring(1) + c;
 
         }
 

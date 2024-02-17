@@ -12,13 +12,14 @@ public class main_test {
         //l.remove('i');
         System.out.println(l.toString());
 
-        LanguageModel lm = new LanguageModel(0,0);
+        LanguageModel lm = new LanguageModel(2,0);
 
-        lm.calculateProbabilities(l);
-        System.out.println(l.toString());
-        System.out.println(lm.getRandomChar(l));
+        lm.train("shake.txt");
 
-
+        for (List list : lm.CharDataMap.values()) {
+            
+            System.out.println(list.toString());
+        }
 
 
 
