@@ -39,12 +39,26 @@ public class LanguageModel {
     // Computes and sets the probabilities (p and cp fields) of all the
 	// characters in the given list. */
 	public void calculateProbabilities(List probs) {				
-		// Your code goes here
+		int sum = 0;
+        for (int i = 0; i < probs.getSize(); i++) {
+            CharData c = probs.get(i);
+            sum += c.count;
+        }
+
+        double b4_sum = 0;
+        for (int i = 0; i < probs.getSize(); i++) {
+            CharData c = probs.get(i);
+            c.p = (double)c.count / sum;
+            c.cp = b4_sum + c.p;
+            b4_sum += c.p;
+        }
+
 	}
 
     // Returns a random character from the given probabilities list.
 	public char getRandomChar(List probs) {
 		// Your code goes here
+        return 'a';
 	}
 
     /**
@@ -56,6 +70,7 @@ public class LanguageModel {
 	 */
 	public String generate(String initialText, int textLength) {
 		// Your code goes here
+        return null;
 	}
 
     /** Returns a string representing the map of this language model. */
