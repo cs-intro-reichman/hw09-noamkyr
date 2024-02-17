@@ -16,9 +16,10 @@ public class main_test {
 
         lm.train("shake.txt");
 
-        for (List list : lm.CharDataMap.values()) {
-            
-            System.out.println(list.toString());
+        for (String str : lm.CharDataMap.keySet()) {
+
+            System.out.println(str);
+            System.out.println(lm.CharDataMap.get(str));
         }
 
 

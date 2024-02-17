@@ -42,6 +42,11 @@ public class LanguageModel {
         }
 
         while (!in.isEmpty()){
+
+            if (window.equals("yo")){
+                int x = 3;
+            }
+
             c = in.readChar();
             List l = CharDataMap.get(window);
 
@@ -53,7 +58,6 @@ public class LanguageModel {
             l.update(c);
             window = window.substring(1) + c;
 
-            c = in.readChar();
 
         }
 
