@@ -17,6 +17,11 @@ public class main_test {
         lm.calculateProbabilities(l);
         System.out.println(l.toString());
         System.out.println(lm.getRandomChar(l));
+
+
+
+
+
     }
 
 }
