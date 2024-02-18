@@ -1,29 +1,22 @@
 public class main_test {
 
     public static void main(String[] args) {
-        List l  = new List();
-        String s = "committee_";
-
-        for (int i = 0; i < s.length(); i++) {
-            l.update(s.charAt(i));
-        }
-
-        System.out.println(l.toString());
-        //l.remove('i');
-        System.out.println(l.toString());
-
-        LanguageModel lm = new LanguageModel(2,0);
-
-        lm.train("shake.txt");
-
-        for (String str : lm.CharDataMap.keySet()) {
-
-            System.out.println(str);
-            System.out.println(lm.CharDataMap.get(str));
-        }
-
-
-
+        int windowLength = Integer.parseInt(args[0]);
+        String initialText = args[1];
+        int generatedTextLength = Integer.parseInt(args[2]);
+        Boolean randomGeneration = args[3].equals("random");
+        String fileName = args[4];
+        // Create the LanguageModel object
+        LanguageModel lm;
+        if (randomGeneration)
+            lm = new LanguageModel(windowLength);
+        else
+            lm = new LanguageModel(windowLength, 20);
+        // Trains the model, creating the map.
+        lm.train(fileName);
+        // Generates text, and prints it.
+        System.out.println(lm.generate(initialText, generatedTextLength));
     }
+
 
 }
