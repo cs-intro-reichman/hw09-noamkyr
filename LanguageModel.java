@@ -120,7 +120,7 @@ public class LanguageModel {
         if (CharDataMap.get(window) == null){
             return initialText;
         }
-        while (result.length() <= textLength){
+        while (result.length() - initialText.length() < textLength){
             List l = CharDataMap.get(window);
             char c = getRandomChar(l);
             result += c;
